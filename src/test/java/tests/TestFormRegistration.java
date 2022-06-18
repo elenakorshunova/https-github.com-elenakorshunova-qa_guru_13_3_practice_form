@@ -20,7 +20,6 @@ public class TestFormRegistration extends TestBase {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('#RightSide_Advertisement').remove()");
 
-
         $("#firstName").setValue("Elena");
         $("#lastName").setValue("Korshunova");
         $("#userEmail").setValue("elena@gmail.com");
