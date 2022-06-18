@@ -21,6 +21,5 @@ public class TextBoxTests extends TestBase {
         $("[id=submit]").click();
 
         $("[id=output]").shouldHave(text("Elena"), text("elena@gmail.com"), text("Address 1"), text("Address 2"));
-
     }
 }
