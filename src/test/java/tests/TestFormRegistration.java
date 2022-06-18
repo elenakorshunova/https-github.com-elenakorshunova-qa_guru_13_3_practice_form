@@ -1,7 +1,6 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.Test;
 
 
@@ -11,20 +10,16 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class TestFormRegistration {
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-    }
+public class TestFormRegistration extends TestBase {
 
     @Test
     void successfulTest() {
         open("/automation-practice-form");
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('#RightSide_Advertisement').remove()");
+
 
         $("#firstName").setValue("Elena");
         $("#lastName").setValue("Korshunova");
@@ -43,9 +38,9 @@ public class TestFormRegistration {
         $("#uploadPicture").uploadFromClasspath("picture.jpeg");
         $("#currentAddress").setValue("My current address");
         $("#state").click();
-        $(byText("Rajasthan")).click();
+        $("#stateCity-wrapper").$(byText("Rajasthan")).click();
         $("#city").click();
-        $(byText("Jaipur")).click();
+        $("#stateCity-wrapper").$(byText("Jaipur")).click();
         $("#submit").click();
 
         $(".modal-content").shouldHave(text("Thanks for submitting the form"));
