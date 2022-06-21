@@ -80,8 +80,8 @@ public class RegistrationFormPage {
         return this;
     }
 
-    public RegistrationFormPage uploadPicture() {
-        uploadPicture.uploadFromClasspath("picture.jpeg");
+    public RegistrationFormPage uploadPicture(String value) {
+        uploadPicture.uploadFromClasspath(value);
         return this;
     }
 
@@ -108,7 +108,7 @@ public class RegistrationFormPage {
         return this;
     }
 
-    public RegistrationFormPage openedForm() {
+    public RegistrationFormPage checkOpenedResultForm() {
         $(".modal-content").shouldHave(text("Thanks for submitting the form"));
         return this;
     }

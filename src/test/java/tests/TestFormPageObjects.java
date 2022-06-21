@@ -20,6 +20,7 @@ public class TestFormPageObjects extends TestBase {
         String currentAddress = "My current address";
         String state = "Rajasthan";
         String city = "Jaipur";
+        String url = "picture.jpeg";
 
 
         registrationFormPage.openPage()
@@ -31,12 +32,12 @@ public class TestFormPageObjects extends TestBase {
                 .setBirthDate(day, month, year)
                 .chooseSubject(fromSubject)
                 .chooseHobbies(hobby)
-                .uploadPicture()
+                .uploadPicture(url)
                 .setAddress(currentAddress)
                 .chooseState(state)
                 .chooseCity(city)
                 .pressSubmit()
-                .openedForm()
+                .checkOpenedResultForm()
                 .checkResult("Student Name", firstName + " " + lastName)
                 .checkResult("Student Email", email)
                 .checkResult("Gender", gender)
